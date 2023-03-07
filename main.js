@@ -45,4 +45,11 @@ let usuarioAutorizado1 = "Esteban";
              break;
  }
  
+//* MOUSEDOWN , para llevar un control de visitas.
+ outlet.onmousedown = () => {
+    console.log("clicks para Outlet Osiris" )
+ }
 
+ nuevacoleccion.onmousedown = () => {
+    console.log("clicks para la nueva coleccion Osiris" )
+ }

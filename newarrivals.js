@@ -1,136 +1,157 @@
 //* INCORPORO ,MODIFICO Y AGREGO CLASES A NODOS **//
 
-const titulo = document.getElementById ("tituloNewarrivals");
+const titulo = document.getElementById("tituloNewarrivals");
 console.log(titulo);
 
 console.log("Modificamos titulo con innerText : ");
 titulo.innerText = "NEW SEASON 2023"
 
-titulo.className= "titulo_newArrivals";
+titulo.className = "titulo_newArrivals";
 
 
-//* OBJETOS Y ARRAYS DE FORMA DINAMICA de "New Colection"
-
-class producto {
-    constructor(id, nombre, precio, img, stock) {
+class Producto {
+    constructor(id, nombre, precio, img,) {
         this.id = id;
         this.nombre = nombre;
         this.precio = precio;
         this.img = img;
-        this.stock = stock;
-
+        this.cantidad = 1;
     }
 
-    sumaStock(cantidad){
-        this.stock = this.stock + cantidad
-    }
 
-    mostrarStock(){
-        console.log(" El stock de: " + this.nombre + " es igual a " + this.stock);
-    }
-    mostrarVender (cantidad){
-        if (this.stock >= cantidad){
-            this.stock -= cantidad;
-            console.log(" Se vendieron " + cantidad + " unidad de " + this.nombre)
-        }
-        else {
-            console.log("No hay mas productos de " + this.nombre);
-        }
-    }
     
+};
+
+const productoUno = new Producto(1, "Vestido PRICK", 1000, "imagenes/NEW_ARRIVALS/look1.jpg", );
+const productoDos = new Producto(2, "Mameluco Green", 1500, "imagenes/NEW_ARRIVALS/look2.jpg", );
+const productoTres = new Producto(3, "Campera White bird", 1800, "imagenes/NEW_ARRIVALS/look3.jpg", );
+const productoCuatro = new Producto(4, "Campera Black bird", 1800, "imagenes/NEW_ARRIVALS/look4.jpg", );
+const productoCinco = new Producto(5, "Vestido Fall", 1400, "imagenes/NEW_ARRIVALS/look5.jpg", );
+const productoSeis = new Producto(6, "Campera Vampire", 1400, "imagenes/NEW_ARRIVALS/look6.jpg", );
+const productoSiete = new Producto(7, "Campera Snake", 1700, "imagenes/NEW_ARRIVALS/look7.jpg", );
+const productoOcho = new Producto(8, "Vestido TK", 1400, "imagenes/NEW_ARRIVALS/look8.jpg", );
+const productoNueve = new Producto(9, "Vestido NUD", 1850, "imagenes/NEW_ARRIVALS/look9.jpg", );
+const productoDiez = new Producto(10, "Mameluco JOD", 1700, "imagenes/NEW_ARRIVALS/look10.jpg", );
+const productoOnce = new Producto(11, "Vestido KETA", 1700, "imagenes/NEW_ARRIVALS/look11.jpg", );
+const productoDoce = new Producto(12, "Vestido CICI", 1900, "imagenes/NEW_ARRIVALS/look12.jpg", );
+
+
+const productos = [productoUno, productoDos, productoTres, productoCuatro, productoCinco, productoSeis, productoSiete, productoOcho, productoNueve, productoDiez, productoOnce, productoDoce];
+
+let carrito = [];
+console.log(productos);
+
+const contenedorProductos = document.getElementById("contenedorProductos")
+
+//Mostrar productos
+
+const mostrarProductos = () => {
+    productos.forEach(producto => {
+        const card = document.createElement("div");
+        card.classList.add("col-xl-3", "col-md-4", "col-sm-12");
+        card.innerHTML = `
+             <div class = "card">
+                <img src = "${producto.img}" class = "img-fluid rounded-start"
+             <div class = "card-body">
+                <h3> ${producto.nombre}</h3>
+                <p> Lorem, ipsum dolor sit amet consectetur adipisicing elit. </p>
+         <p>€${producto.precio} </p>
+         <button class = "btn btn-secondary" id="boton${producto.id}"> Agregar al carrito</button>
+</div>
+</div>`
+        contenedorProductos.appendChild(card);
+        const boton = document.getElementById(`boton${producto.id}`);
+        boton.addEventListener("click", () => {
+            agregarAlCarrito(producto.id);
+        })
+
+
+    })
+}
+mostrarProductos();
+
+//Agregar al carrito
+
+const agregarAlCarrito = (id) => {
+    const productoEnCarrito = carrito.find(producto => producto.id === id);
+    if (productoEnCarrito) {
+        productoEnCarrito.cantidad++;
+    } else {
+        const producto = productos.find(producto => producto.id === id);
+        carrito.push(producto);
+    }
+    console.log(carrito);
+    calcularTotal();
+    localStorage.setItem("carrito", JSON.stringify(carrito));
 }
 
-const productoUno = new producto(1, "Dress PRICK", 1000, "imagenes/NEW_ARRIVALS/look1.jpg", 50);
-const productoDos = new producto(2, "Mameluke Green", 1500, "imagenes/NEW_ARRIVALS/look2.jpg", 50);
-const productoTres = new producto(3, "Jacket White bird", 1800, "imagenes/NEW_ARRIVALS/look3.jpg", 50);
-const productoCuatro = new producto(4, "Jacket Black bird", 1800, "imagenes/NEW_ARRIVALS/look4.jpg", 50);
-const productoCinco = new producto(5, "Dress Fall", 1400, "imagenes/NEW_ARRIVALS/look5.jpg", 100);
-const productoSeis = new producto(6, "Jacket Vampire", 1400, "imagenes/NEW_ARRIVALS/look6.jpg", 70);
-const productoSiete = new producto(7, "Covered Snake", 1700, "imagenes/NEW_ARRIVALS/look7.jpg", 100);
-const productoOcho = new producto(8, "Covered TK", 1400, "imagenes/NEW_ARRIVALS/look8.jpg", 100);
-const productoNueve = new producto(9, "Dress NUD", 1850, "imagenes/NEW_ARRIVALS/look9.jpg", 70);
-const productoDiez = new producto(10, "Mameluke JOD", 1700, "imagenes/NEW_ARRIVALS/look10.jpg", 60);
-const productoOnce = new producto(11,"Dress KETA", 1700, "imagenes/NEW_ARRIVALS/look11.jpg", 20);
-const productoDoce = new producto(12,"Dress CICI", 1900, "imagenes/NEW_ARRIVALS/look12.jpg", 20);
-const productoTrece = new producto(13,"Dress PEPA", 1700, "imagenes/NEW_ARRIVALS/look13.jpg", 20);
-const productoCatorce = new producto(14,"Dress PIG", 1700, "imagenes/NEW_ARRIVALS/look14.jpg", 20);
+const contenedorCarrito = document.getElementById("contenedorCarrito");
+const verCarrito = document.getElementById("verCarrito");
 
-const arrayProductos = [productoUno, productoDos, productoTres, productoCuatro, productoCinco, productoSeis, productoSiete, productoOcho, productoNueve, productoDiez, productoOnce, productoDoce, productoTrece, productoCatorce];
-console.log("Mostramos los productos de la tienda: ");
-console.log(arrayProductos);
-
-//* INGRESO NUEVOS VALORES
-
-productoUno.mostrarStock ();
-productoUno.sumaStock(20);
-productoUno.mostrarStock();
-productoTres.mostrarStock ();
-productoTres.sumaStock(40);
-productoTres.mostrarStock();
-productoDiez.mostrarStock ();
-productoDiez.sumaStock(50);
-productoDiez.mostrarStock();
-
-productoDos.mostrarVender(40);
-productoDos.mostrarStock();
-
-const contenedorProductos = document.getElementById("contenedorProductos");
-
-
-arrayProductos.forEach(producto => {
-    const div = document.createElement("div");
-    div.className = "caja";
-    div.innerHTML = `<div class="card" style="max-width: 540px;">
-                    <div class="row g-0">
-                    <div class="col-md-4">
-                   <img src=${producto.img} class="img-fluid rounded-start" alt="...">
-                    </div>
-                  <div class="col-md-8">
-                  <div class="card-body">
-                  <h5 class="card-title"> ${producto.nombre}</h5>
-                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                   <p class="card-price">€${producto.precio}</p>
-                  <button id="agregar $(producto.id)" class="boton-agregar">Agregar <i class="fa-duotone fa-cart-shopping"></i></button>
-         </div>
-         
-       </div>
-     
-     `;
-contenedorProductos.appendChild(div);
-const boton = document.getElementById (`agregar $(producto.id)`)
-boton.addEventListener ("click",()=>{
-    agregarAlCarrito(producto.id)
+verCarrito.addEventListener("click", () => {
+    mostrarCarrito();
 })
-    })
 
+const mostrarCarrito = () => {
+    contenedorCarrito.innerHTML = "";
+    carrito.forEach(producto => {
+        const card = document.createElement("div");
+        card.classList.add("col-xl-3", "col-md-6", "col-sm-12");
+        card.innerHTML = `
+             <div class = "card">
+                <img src = "${producto.img}" class = "card-img-tom imgProductos"
+             <div class = "card-body">
+                <h3> ${producto.nombre}</h3>
+         <p>€${producto.precio} </p>
+         <p>${producto.cantidad}</p>
+         <button class = "btn btn-secondary" id="eliminar${producto.id}"> Eliminar</button>
+</div>
+</div>`
 
+        contenedorCarrito.appendChild(card);
 
-
-
-
-//* Carrito *//(Estoy trabajando en el carrito mirando videos en youtube.)
-    let carrito = []
-
-    const agregarAlCarrito = (prodId)=>{
-        const item = arrayProductos.find ((prod)=> producto.id === prodId)
-        carrito.push(item)
-        actualizarCarrito()
-        console.log(carrito)
-    }
-
-    const actualizarCarrito = () => {
-
-        carrito.forEach ((producto) => {
-            const div = document.createdElement ("div")
-            div.className = ("productoEnCarrito")
-            div.innerHTML =`
-            <p> ${producto.nombre}</p>
-            <p> ${producto.precio} </p>
-            <p> cantidad: <span id="cantidad">${producto.cantidad}</span></p>
-<button onclick = "eliminarDelCarrito(${producto.id})" class= "boton-eliminar"></button> <i class="fa-regular fa-trash"></i>
-            `;
-        contenedorCarrito.appendChild(div)
+        const boton = document.getElementById(`eliminar${producto.id}`);
+        boton.addEventListener("click", () => {
+            eliminarDelCarrito(producto.id);
         })
-    }
+    })
+    calcularTotal();
+}
 
- 
+const eliminarDelCarrito = (id) => {
+    const producto = carrito.find(producto => producto.id === id);
+    const indice = carrito.indexOf(producto);
+    carrito.splice(indice, 1);
+    mostrarCarrito();
+
+    //LocalStorage: 
+    localStorage.setItem("carrito", JSON.stringify(carrito));
+}
+
+//Vaciamos todo el carrito de compras. 
+
+const vaciarCarrito = document.getElementById("vaciarCarrito");
+
+vaciarCarrito.addEventListener("click", () => {
+    eliminarTodoElCarrito();
+})
+
+const eliminarTodoElCarrito = () => {
+    carrito = [];
+    mostrarCarrito();
+
+    //LocalStorage: 
+    localStorage.clear();
+}
+
+const total = document.getElementById("total");
+
+const calcularTotal = () => {
+    let totalCompra = 0;
+    carrito.forEach(producto => {
+        totalCompra += producto.precio * producto.cantidad;
+        //+= es igual a poner totalCompra = totalCompra + producto.precio * producto.cantidad. 
+    })
+    total.innerHTML = `Total €${totalCompra}`;
+}
+
