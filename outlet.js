@@ -1,4 +1,4 @@
-alert ("Obten 100€ de descuento!");
+
 
 class producto {
     constructor(id, nombre, precio, img, stock) {

@@ -1,6 +1,4 @@
- //* Usario + contrasena
-
-
+ //* Usario + contrasena + Operador logico OR
 
 let usuarioAutorizado1 = "Esteban";
  let passwordAutorizado1 = "1234";
@@ -10,7 +8,9 @@ let usuarioAutorizado1 = "Esteban";
  let passwordAutorizado3 = "1234";
 
  let usuarioIngresado = prompt ("Ingrese su usuario");
+ console.log (usuarioIngresado || "invitado")
  let passwordIngresado = prompt ("Ingrese su password");
+ 
 
 
  if (usuarioIngresado === usuarioAutorizado1 && passwordIngresado === passwordAutorizado1,
@@ -21,31 +21,10 @@ let usuarioAutorizado1 = "Esteban";
      alert ("Usuario o Password incorrectos")
  }
 
- let valorUno = parseInt (prompt ("Ingrese el primer valor"));
- let operacion = prompt ("Ingrese la operacion a relizar");
- let valorDos = parseInt (prompt ("Ingrese el segundo valor"));
  
  
  
- switch (operacion){
-     case "+":
-         console.log (valorUno + valorDos);
-         break;
-         case "-":
-         console.log (valorUno - valorDos);
-         break;
-         case "*":
-         console.log (valorUno * valorDos);
-         break;
-         case "/":
-         console.log (valorUno / valorDos);
-         break;
-         default:
-             console.log("Escribi bien tinki guinki");
-             break;
- }
- 
-//* MOUSEDOWN , para llevar un control de visitas.
+//* MOUSEDOWN , para llevar un control de visitas en ambos sitios.
  outlet.onmousedown = () => {
     console.log("clicks para Outlet Osiris" )
  }

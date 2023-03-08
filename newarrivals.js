@@ -38,6 +38,11 @@ const productoDoce = new Producto(12, "Vestido CICI", 1900, "imagenes/NEW_ARRIVA
 
 const productos = [productoUno, productoDos, productoTres, productoCuatro, productoCinco, productoSeis, productoSiete, productoOcho, productoNueve, productoDiez, productoOnce, productoDoce];
 
+//Desestructuracion de ARRAY
+let [,,,,quinto,sexto,octavo,noveno] = productos;
+console.log(sexto, "Solicitar mas stock");
+console.log(noveno, "Pasarlo a Outlet");
+
 let carrito = [];
 console.log(productos);
 
