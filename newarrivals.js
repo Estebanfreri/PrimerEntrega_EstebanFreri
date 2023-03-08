@@ -160,3 +160,13 @@ const calcularTotal = () => {
     total.innerHTML = `Total €${totalCompra}`;
 }
 
+
+
+//** BUSCADOR **//
+const formulario = document.querySelector ("formulario");
+const boton = document.querySelector ("botonBuscador")
+
+const filtrar = () => {
+    console.log (formulario.value);
+}
+
