@@ -48,23 +48,21 @@
 
   <!-- Contenedor productos -->
   <h1 id="tituloNewarrivals"> News Arrivals</h1>
-  <div class="buscador">
-  <form class="d-flex" role="search">
-    <input class="form-control me-2" id="formulario" type="search" placeholder="Search" aria-label="Search">
-    <button class="btn btn-outline-success" id="botonBuscador" type="submit">Buscar</button>
-</form>
-</div>
+  
 
 
-
+<!--INICIO Contenedor de productos-->
 <div id="contenedorProductos" class="row"></div>
+<!--FIN Contenedor de productos-->
 <!--INICIO Carrito de compras-->
 
 <div class="carritoOsiris">
-<h2>Carrito de compras</h2>
-<h3>El total de la compra es <span id="total"></span> </h3>
-<button class="btn btn-success" id="verCarrito">Ver carrito</button>
-<button class="btn btn-success" id="vaciarCarrito">Vaciar carrito</button>
+<h2> <u>Carrito de compras </u></h2>
+<hr class="linea" width="60%" size="8px" color="danger" />
+<hr class="linea" width="75%" size="8px" color="danger" />
+<h3> <span id="total"></span> </h3>
+<button class="btn btn-outline-info" id="verCarrito">Ver carrito</button>
+<button class="btn btn-outline-info" id="vaciarCarrito">Vaciar carrito</button>
 <div id="contenedorCarrito" class="row"></div>
 </div>
 <!--FIN Carrito de compras-->
@@ -101,7 +99,7 @@
     </div>
   </footer>
 
-
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script src="newarrivals.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
