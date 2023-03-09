@@ -559,7 +559,20 @@ width: 1452px;
     margin-right: 10px;
  }
 
+ .ingreso {
+    display: flex;
+    justify-content: center;
+    background: url(../imagenes/fondoIngreso.jpeg) no-repeat center;
+    height: 800px;
+ }
+
+ .bgIngreso{
+ margin: 150px;
+
     
+ }
+
+
 
 
 
