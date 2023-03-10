@@ -97,19 +97,28 @@ const mostrarProductos = () => {
         <h5> ${producto.nombre}</h5>
         <p class="card-text"> Lorem, ipsum dolor sit amet consectetur adipisicing elit. </p>
          <p>€${producto.precio} </p>
-         <button class = "btn btn-secondary" id="boton${producto.id}"> Agregar al carrito</button>
+         <button class = "botonStyle bg-dark" id="boton${producto.id}"> Agregar al carrito</button>
 </div>
 </div>`
         contenedorProductos.appendChild(card);
         const boton = document.getElementById(`boton${producto.id}`);
         boton.addEventListener("click", () => {
-            agregarAlCarrito(producto.id);
-        })
-
+            agregarAlCarrito(producto.id),
+                Toastify({
+                    text: "Agregado al carrito",
+                    duration: 2000,
+                    style: {
+                        background: "linear-gradient(to right,#0e0640, #7a778f)",
+                      }
+                }).showToast()
+        }) 
+       
 
     })
 }
 mostrarProductos();
+
+
 
 //Agregar al carrito
 
@@ -187,7 +196,7 @@ const eliminarDelCarrito = (id) => {
     localStorage.setItem("carrito", JSON.stringify(carrito));
 }
 
-//Vaciamos todo el carrito de compras. 
+//Vaciar carrito de compras. 
 
 const vaciarCarrito = document.getElementById("vaciarCarrito");
 

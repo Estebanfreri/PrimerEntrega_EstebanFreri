@@ -532,24 +532,35 @@ width: 1452px;
     .card {
         height: 100px;
         display: flex;
-        align-items:center;
         margin-bottom: 20px;
     }
 
-    .card p{
-        margin: 10px;
-    }
+  .card-body{
+    text-align: center;
+    background: rgb(10,10,10);
+    background: linear-gradient(90deg, rgba(10,10,10,1) 5%, rgba(29,95,253,1) 39%, rgba(246,243,238,1) 100%);
+  }
 
  .carritoOsiris{
     text-align: end;
     background-color:black;
-    color: rgb(146, 61, 183);
-    padding-right: 20px;
+    color: rgb(182, 186, 204) ;
+    padding-right: 40px;
+    
+ }
+
+ #total{
+    padding-right: 90px;
+    background: rgb(10,10,10);
+    background: linear-gradient(90deg, rgba(10,10,10,1) 5%, rgba(29,95,253,1) 39%, rgba(246,243,238,1) 100%);
+color: #c61212;
  }
 
  .linea{
     text-align: end;
  }
+
+
 
  #verCarrito{
     margin-right: 40px;
@@ -568,11 +579,17 @@ width: 1452px;
 
  .bgIngreso{
  margin: 150px;
-
-    
+   
  }
 
 
+.botonStyle{
+    color:#e9d7e7;
+}
+
+.botonStyle:hover{
+    color:#2887d1;
+}
 
 
 
