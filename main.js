@@ -23,5 +23,15 @@ descuento.addEventListener("click", () => {
     })
 })
 
+///////////// Banner ///////////////
+
+const banner = document.getElementById ("banner")
+
+setTimeout (()=>{
+    banner.innerHTML = `
+    <img src =${banner} alt=""> `
+    
+},4000);
+
 
 

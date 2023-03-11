@@ -516,6 +516,12 @@
 
     }
 
+    #banner{
+        display: flex;
+        justify-content: center;
+        
+    }
+
     #contenedorProductos{
 background-color: black;
 width: 1452px;
