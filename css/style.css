@@ -525,6 +525,7 @@
     #contenedorProductos{
 background-color: black;
 width: 1452px;
+padding-left: 50px;
 
 
     }
@@ -545,6 +546,7 @@ width: 1452px;
     text-align: center;
     background: rgb(10,10,10);
     background: linear-gradient(90deg, rgba(10,10,10,1) 5%, rgba(29,95,253,1) 39%, rgba(246,243,238,1) 100%);
+    
   }
 
  .carritoOsiris{
@@ -597,7 +599,14 @@ color: #c61212;
     color:#2887d1;
 }
 
-
+#dolar {
+    display: flex;
+    justify-content: center;
+   
+    padding: 30px;
+    background: rgb(10,10,10);
+    background: linear-gradient(90deg, rgba(10,10,10,1) 5%, rgba(29,95,253,1) 39%, rgba(246,243,238,1) 100%);
+}
 
 
 

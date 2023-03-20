@@ -29,18 +29,18 @@ class Producto {
     
 };
 
-const productoUno = new Producto(1, "Vestido PRICK", 1000, "imagenes/NEW_ARRIVALS/look1.jpg",20 );
-const productoDos = new Producto(2, "Mameluco Green", 1500, "imagenes/NEW_ARRIVALS/look2.jpg",24 );
-const productoTres = new Producto(3, "Campera White bird", 1800, "imagenes/NEW_ARRIVALS/look3.jpg",33 );
-const productoCuatro = new Producto(4, "Campera Black bird", 1800, "imagenes/NEW_ARRIVALS/look4.jpg",13 );
-const productoCinco = new Producto(5, "Vestido Fall", 1400, "imagenes/NEW_ARRIVALS/look5.jpg",15 );
-const productoSeis = new Producto(6, "Campera Vampire", 1400, "imagenes/NEW_ARRIVALS/look6.jpg",4 );
-const productoSiete = new Producto(7, "Campera Snake", 1700, "imagenes/NEW_ARRIVALS/look7.jpg",30 );
-const productoOcho = new Producto(8, "Vestido TK", 1400, "imagenes/NEW_ARRIVALS/look8.jpg",12 );
-const productoNueve = new Producto(9, "Vestido NUD", 1850, "imagenes/NEW_ARRIVALS/look9.jpg",23 );
-const productoDiez = new Producto(10, "Mameluco JOD", 1700, "imagenes/NEW_ARRIVALS/look10.jpg",20 );
-const productoOnce = new Producto(11, "Vestido KETA", 1700, "imagenes/NEW_ARRIVALS/look11.jpg",50 );
-const productoDoce = new Producto(12, "Vestido CICI", 1900, "imagenes/NEW_ARRIVALS/look12.jpg",30 );
+const productoUno = new Producto(1, "Vestido PRICK", 200, "imagenes/NEW_ARRIVALS/look1.jpg",20 );
+const productoDos = new Producto(2, "Mameluco Green", 150, "imagenes/NEW_ARRIVALS/look2.jpg",24 );
+const productoTres = new Producto(3, "Campera White bird", 180, "imagenes/NEW_ARRIVALS/look3.jpg",33 );
+const productoCuatro = new Producto(4, "Campera Black bird", 180, "imagenes/NEW_ARRIVALS/look4.jpg",13 );
+const productoCinco = new Producto(5, "Vestido Fall", 140, "imagenes/NEW_ARRIVALS/look5.jpg",15 );
+const productoSeis = new Producto(6, "Campera Vampire", 140, "imagenes/NEW_ARRIVALS/look6.jpg",4 );
+const productoSiete = new Producto(7, "Campera Snake", 170, "imagenes/NEW_ARRIVALS/look7.jpg",30 );
+const productoOcho = new Producto(8, "Vestido TK", 140, "imagenes/NEW_ARRIVALS/look8.jpg",12 );
+const productoNueve = new Producto(9, "Vestido NUD", 150, "imagenes/NEW_ARRIVALS/look9.jpg",23 );
+const productoDiez = new Producto(10, "Mameluco JOD", 170, "imagenes/NEW_ARRIVALS/look10.jpg",20 );
+const productoOnce = new Producto(11, "Vestido KETA", 170, "imagenes/NEW_ARRIVALS/look11.jpg",50 );
+const productoDoce = new Producto(12, "Vestido CICI", 190, "imagenes/NEW_ARRIVALS/look12.jpg",30 );
 
 
 const productos = [productoUno, productoDos, productoTres, productoCuatro, productoCinco, productoSeis, productoSiete, productoOcho, productoNueve, productoDiez, productoOnce, productoDoce];
@@ -62,10 +62,10 @@ class ProductoBolso {
     
 };
 
-const productoBolsoUno = new Producto(21, "Bolso Conejo", 900, "imagenes/bolso1.jpeg",10 );
-const productoBolsoDos = new Producto(22, "Bolso Tortuga", 900, "imagenes/bolso2.jpeg",14 );
-const productoBolsoTres = new Producto(23, "Bolso Tubo", 800, "imagenes/bolso3.jpeg",13 );
-const productoBolsoCuatro = new Producto(24, "Bolso Diamante", 800, "imagenes/bolso4.jpeg",13 );
+const productoBolsoUno = new Producto(21, "Bolso Conejo", 100, "imagenes/bolso1.jpeg",10 );
+const productoBolsoDos = new Producto(22, "Bolso Tortuga", 120, "imagenes/bolso2.jpeg",14 );
+const productoBolsoTres = new Producto(23, "Bolso Tubo", 80, "imagenes/bolso3.jpeg",13 );
+const productoBolsoCuatro = new Producto(24, "Bolso Diamante", 140, "imagenes/bolso4.jpeg",13 );
 
 const productosDos = [productoBolsoUno,productoBolsoDos,productoBolsoTres,productoBolsoCuatro];
 
@@ -96,7 +96,7 @@ const mostrarProductos = () => {
      <div class = "card-body">
         <h5> ${producto.nombre}</h5>
         <p class="card-text"> Lorem, ipsum dolor sit amet consectetur adipisicing elit. </p>
-         <p>€${producto.precio} </p>
+         <p>$${producto.precio} </p>
          <button class = "botonStyle bg-dark" id="boton${producto.id}"> Agregar al carrito</button>
 </div>
 </div>`
@@ -221,7 +221,22 @@ const calcularTotal = () => {
         totalCompra += producto.precio * producto.cantidad;
         //+= es igual a poner totalCompra = totalCompra + producto.precio * producto.cantidad. 
     })
-    total.innerHTML = `Total €${totalCompra}`;
+    total.innerHTML = `Total $${totalCompra}`;
 }
+
+//FETCH
+
+const dolar = document.getElementById ("dolar");
+
+const url = "https://criptoya.com/api/dolar";
+
+setInterval (() => {
+    fetch(url)
+     .then ((response)=> response.json())
+     .then (({blue,oficial,solidario,mep,ccl,ccb})=>{
+        dolar.innerHTML = `<p> Dolar Blue $${blue} - Dolar Oficial $${oficial} - Dolar Solidario $${solidario} - Dolar MEP $${mep} - Dolar CCL $${ccl} - Dolar CCB $${ccb} -</p>`
+     })
+
+},4000);
 
 
